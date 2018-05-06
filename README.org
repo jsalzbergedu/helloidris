@@ -1,0 +1,5 @@
+#+author: Jacob Salzberg
+#+title: Hello Idris
+
+* Hello Idris!
+Just a little repo for introducing myself to idris :)
