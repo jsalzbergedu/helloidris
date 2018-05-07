@@ -14,14 +14,16 @@ interface Doot a where
 Doot String where
   doot a = id a
 
-total cond : (List (Bool, Lazy a), Lazy a) -> a
-cond (lst, other) = let options = (filter fst lst) in
-  case (head' options) of
-    Just (_, a) => a
-    Nothing => other
+total condl : (List (Lazy Bool, Lazy a)) -> Maybe a
+condl [] = Nothing
+condl ((True, a) :: rest) = Just a
+condl ((False, _) :: rest) = condl rest
 
-dootdoot : (List a, a) -> List a
-dootdoot (dt, dtdt) = dt
+total cond : (List (Lazy Bool, Lazy a), Lazy a) -> a
+cond (lst, other) = case (condl lst) of
+  Just a => a
+  Nothing => other
 
+export
 main : IO ()
 main = do putStrLn (show (cond ([(False, 10), (False, 20), (False, 30)], 40)))

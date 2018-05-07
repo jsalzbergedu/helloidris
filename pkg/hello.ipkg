@@ -1,0 +1,9 @@
+package hello
+
+modules = hello
+
+sourcedir = src
+
+main = hello
+
+executable = hello
