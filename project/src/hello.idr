@@ -24,6 +24,5 @@ cond (lst, other) = case (condl lst) of
   Just a => a
   Nothing => other
 
-export
-main : IO ()
+total main : IO ()
 main = do putStrLn (show (cond ([(False, 10), (False, 20), (False, 30)], 40)))

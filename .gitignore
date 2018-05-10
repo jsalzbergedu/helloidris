@@ -1,5 +1,5 @@
-pkg/*
-!pkg/*.ipkg
-!pkg/src
+project/*
+!project/*.ipkg
+!project/src
 
 *.ibc
